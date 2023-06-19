@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ColorButton from "./ui/button/ColorButton";
-import { HomeIcon, HomeFillIcon, SearchIcon, SearchFillIcon, AddIcon, AddFillIcon } from "./ui/icons";
+import ColorButton from "./button/ColorButton";
+import { HomeIcon, HomeFillIcon, SearchIcon, SearchFillIcon, AddIcon, AddFillIcon } from "./icons";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Profile from "./Profile";
 

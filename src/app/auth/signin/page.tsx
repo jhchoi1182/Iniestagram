@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { getProviders } from "next-auth/react";
-import Signin from "@/components/Signin";
+import { Signin } from "@/components/ui/button";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export default async function signPage() {

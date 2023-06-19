@@ -1,10 +1,10 @@
 import { User } from "@/model/user";
 import Profile from "./Profile";
 
-type Props = {
+type SideBarProps = {
   user: User;
 };
-export default function SideBar({ user: { name, username, image } }: Props) {
+export default function SideBar({ user: { name, username, image } }: SideBarProps) {
   return (
     <>
       <div className="flex items-center">
