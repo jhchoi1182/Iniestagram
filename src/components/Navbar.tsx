@@ -44,7 +44,7 @@ export default function Navbar() {
           {user && (
             <li>
               <Link href={`/user/${user.username}`}>
-                <Profile image={user.image} />
+                <Profile image={user.image} size="small" highlight />
               </Link>
             </li>
           )}
