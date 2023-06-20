@@ -17,7 +17,7 @@ export default function SideBar({ user: { name, username, image } }: SideBarProp
       <p className="text-sm text-neutral-500 mt-8">
         About · Help · Press · API · Jobs · Privacy · Terms · Location · Language
       </p>
-      <p className="font-bold text-sm mt-8 text-neutral-500">@Copyright INSTARGRAM from jihyeon</p>
+      <p className="font-bold text-sm mt-8 text-neutral-500">@Copyright INIESTAGRAM from jihyeon</p>
     </>
   );
 }

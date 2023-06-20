@@ -7,13 +7,17 @@ export type User = {
 
 export type SimpleUser = Pick<User, "username" | "image">;
 
-export type DetailUser = User & {
+export type HomeUser = User & {
   following: SimpleUser[];
   followers: SimpleUser[];
   bookmarks: string[];
 };
 
-export type ProfileUser = User & {
+export type SearchUser = User & {
   following: number;
   followers: number;
+};
+
+export type ProfileUser = SearchUser & {
+  posts: number;
 };
