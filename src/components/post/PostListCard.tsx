@@ -7,7 +7,7 @@ import CommentForm from "./CommentForm";
 import PostContent from "./PostContent";
 import { useState } from "react";
 import ModalPortal from "../detailModal/ModalPortal";
-import DetailModal from "../detailModal";
+import DetailModal from "../detailModal/DetailModal";
 import DetailPost from "../detailModal/DetailPost";
 
 type PostListCardProps = {
