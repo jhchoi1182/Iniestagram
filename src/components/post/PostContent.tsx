@@ -5,8 +5,8 @@ import { parseDate } from "@/util/date";
 type PostContentProps = {
   likes: string[];
   username: string;
-  text: string;
   createdAt: string;
+  text?: string;
 };
 
 export default function PostContent({ likes, username, text, createdAt }: PostContentProps) {
@@ -18,10 +18,12 @@ export default function PostContent({ likes, username, text, createdAt }: PostCo
       </div>
       <div className="px-4 py-1">
         <p className="text-sm font-bold mb-2">{`${likes?.length ?? 0} ${likes?.length > 1 ? "likes" : "like"}`}</p>
-        <p>
-          <span className="font-bold mr-1">{username}</span>
-          {text}
-        </p>
+        {text && (
+          <p>
+            <span className="font-bold mr-1">{username}</span>
+            {text}
+          </p>
+        )}
         <p className="text-xs text-neutral-500 uppercase my-2">{parseDate(createdAt)}</p>
       </div>
     </>

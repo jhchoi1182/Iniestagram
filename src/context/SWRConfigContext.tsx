@@ -1,10 +1,7 @@
 'use client';
 
 import { SWRConfig } from 'swr';
-
-type ChildrenProps = {
-  children: React.ReactNode;
-};
+import { ChildrenProps } from "./AuthContext";
 
 export default function SWRConfigContext({ children }: ChildrenProps) {
   return (
