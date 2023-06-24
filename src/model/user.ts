@@ -3,6 +3,7 @@ export type User = {
   username: string;
   email: string;
   image?: string;
+  id: string;
 };
 
 export type SimpleUser = Pick<User, "username" | "image">;

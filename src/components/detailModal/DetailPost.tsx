@@ -33,7 +33,7 @@ export default function DetailPost({ post }: DetailPostProps) {
               </li>
             ))}
         </ul>
-        <PostContent likes={likes} username={username} createdAt={createdAt} />
+        <PostContent post={post} />
         <CommentForm />
       </div>
     </section>

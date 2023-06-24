@@ -6,3 +6,5 @@ export { default as HeartIcon } from "./HeartIcon";
 export { default as BookmarkIcon } from "./BookmarkIcon";
 export { default as CloseIcon } from "./CloseIcon";
 export { default as PostIcon } from "./PostIcon";
+export { default as HeartFillIcon } from "./HeartFillIcon";
+export { default as BookmarkFillIcon } from "./BookmarkFillIcon";
