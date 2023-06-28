@@ -5,11 +5,11 @@ import GridSpinner from "./GridSpinner";
 import usePosts from "@/hooks/usePosts";
 
 export default function PostList() {
-  const { posts, isLoading: loading } = usePosts();
+  const { posts, isLoading } = usePosts();
 
   return (
     <section>
-      {loading && (
+      {isLoading && (
         <div className="text-center mt-32">
           <GridSpinner color="red" />
         </div>
