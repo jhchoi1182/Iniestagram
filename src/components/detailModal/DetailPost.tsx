@@ -1,17 +1,16 @@
-import { FullPost, SimplePost } from "@/model/post";
+import { SimplePost } from "@/model/post";
 import Image from "next/image";
-import userSWR from "swr";
 import PostContent from "../post/PostContent";
-import CommentForm from "../post/CommentForm";
 import Profile from "../ui/Profile";
 import PostUserProfile from "../ui/PostUserProfile";
+import usePost from "@/hooks/usepost";
 
 type DetailPostProps = {
   post: SimplePost;
 };
 export default function DetailPost({ post }: DetailPostProps) {
-  const { id, userImage, username, image, createdAt, likes } = post;
-  const { data } = userSWR<FullPost>(`/api/posts/${id}`);
+  const { id, userImage, username, image } = post;
+  const { post: data, postComment } = usePost(id);
   const comments = data?.comments;
 
   return (
@@ -33,8 +32,7 @@ export default function DetailPost({ post }: DetailPostProps) {
               </li>
             ))}
         </ul>
-        <PostContent post={post} />
-        <CommentForm />
+        <PostContent post={post} onComment={postComment} />
       </div>
     </section>
   );
