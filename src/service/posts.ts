@@ -1,5 +1,5 @@
-import { SimplePost } from './../model/post';
-import { assetsURL, client, urlFor } from './sanity';
+import { SimplePost } from "./../model/post";
+import { assetsURL, client, urlFor } from "./sanity";
 
 const simplePostProjection = `
     ...,
@@ -84,10 +84,10 @@ export async function likePost(postId: string, userId: string) {
   return client
     .patch(postId) //
     .setIfMissing({ likes: [] })
-    .append('likes', [
+    .append("likes", [
       {
         _ref: userId,
-        _type: 'reference',
+        _type: "reference",
       },
     ])
     .commit({ autoGenerateArrayKeys: true });
@@ -100,49 +100,44 @@ export async function dislikePost(postId: string, userId: string) {
     .commit();
 }
 
-export async function addComment(
-  postId: string,
-  userId: string,
-  comment: string
-) {
+export async function addComment(postId: string, userId: string, comment: string) {
   return client
     .patch(postId) //
     .setIfMissing({ comments: [] })
-    .append('comments', [
+    .append("comments", [
       {
         comment,
-        author: { _ref: userId, _type: 'reference' },
+        author: { _ref: userId, _type: "reference" },
       },
     ])
     .commit({ autoGenerateArrayKeys: true });
 }
 
 export async function createPost(userId: string, text: string, file: Blob) {
-  return {}
-  // fetch(assetsURL, {
-  //   method: 'POST',
-  //   headers: {
-  //     'content-type': file.type,
-  //     authorization: `Bearer ${process.env.SANITY_SECRET_TOKEN}`,
-  //   },
-  //   body: file,
-  // })
-  //   .then((res) => res.json())
-  //   .then((result) => {
-  //     return client.create(
-  //       {
-  //         _type: 'post',
-  //         author: { _ref: userId },
-  //         photo: { asset: { _ref: result.document._id } },
-  //         comments: [
-  //           {
-  //             comment: text,
-  //             author: { _ref: userId, _type: 'reference' },
-  //           },
-  //         ],
-  //         likes: [],
-  //       },
-  //       { autoGenerateArrayKeys: true }
-  //     );
-  //   });
+  fetch(assetsURL, {
+    method: "POST",
+    headers: {
+      "content-type": file.type,
+      authorization: `Bearer ${process.env.SANITY_SECRET_TOKEN}`,
+    },
+    body: file,
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      return client.create(
+        {
+          _type: "post",
+          author: { _ref: userId },
+          photo: { asset: { _ref: result.document._id } },
+          comments: [
+            {
+              comment: text,
+              author: { _ref: userId, _type: "reference" },
+            },
+          ],
+          likes: [],
+        },
+        { autoGenerateArrayKeys: true }
+      );
+    });
 }
