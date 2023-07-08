@@ -33,8 +33,15 @@ export default function PostContent({ post, children, onComment }: PostContentPr
   return (
     <>
       <div className="flex justify-between my-2 px-4">
-        <ToggleButton toggled={liked} onToggle={handleLike} onIcon={<HeartFillIcon />} offIcon={<HeartIcon />} />
         <ToggleButton
+          title={liked ? "unlike" : "like"}
+          toggled={liked}
+          onToggle={handleLike}
+          onIcon={<HeartFillIcon />}
+          offIcon={<HeartIcon />}
+        />
+        <ToggleButton
+          title={liked ? "unlike" : "like"}
           toggled={bookmarked}
           onToggle={handleBookmark}
           onIcon={<BookmarkFillIcon />}
