@@ -3,7 +3,7 @@ import Image from "next/image";
 import PostContent from "../post/PostContent";
 import Profile from "../ui/Profile";
 import PostUserProfile from "../ui/PostUserProfile";
-import usePost from "@/hooks/usepost";
+import usePost from "@/hooks/usePost";
 
 type DetailPostProps = {
   post: SimplePost;
